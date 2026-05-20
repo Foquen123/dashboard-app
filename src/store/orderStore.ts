@@ -1,15 +1,13 @@
 import { create } from 'zustand';
-import { inboxMessagesExample, orderListExample } from '../exampleData';
-import type { IInboxMessage } from '../interfaces/InboxMessage.interface';
+import { orderListExample } from '../exampleData';
 import type { IOrder } from '../interfaces/Order.interface';
-import { useSearchParams } from 'react-router';
-import useDatesFromUrl from '../hooks/useDatesFromUrl';
 import { isValid, parseISO } from 'date-fns';
 
 interface OrderStore {
   ordersMap: Record<string, IOrder>;
   limit: number;
   countOfItems: number;
+  // eslint-disable-next-line no-unused-vars
   fetchOrders: (currentPage: number, limit?: number) => void;
 }
 
@@ -52,8 +50,7 @@ const useOrderStore = create<OrderStore>((set) => ({
           return item;
         }
       });
-    }
-    else{
+    } else {
       messagesFromServer = filteredOrders;
     }
 

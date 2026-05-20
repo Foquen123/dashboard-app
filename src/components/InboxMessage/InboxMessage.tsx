@@ -40,7 +40,3 @@ function InboxMessage({ id }: InboxMessageProps) {
 }
 
 export default InboxMessage;
-
-function useMediaQuery(arg0: { minWidth: number; }) {
-  throw new Error('Function not implemented.');
-}

@@ -7,7 +7,7 @@ import InboxMessage from '../InboxMessage/InboxMessage';
 
 
 function MessagesList() {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   // const { pagesCount, setPagesCount } = usePagesCount();
   const currentPage = Number(searchParams.get('page')) || 1;
   const limit = useInboxStore(store => store.limit);

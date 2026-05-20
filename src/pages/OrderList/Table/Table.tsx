@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import Label from '../../../components/Label/Label';
-import { orderListExample } from '../../../exampleData';
 import styles from './Table.module.css';
 import { useSearchParams } from 'react-router';
 import { useOrderStore } from '../../../store/orderStore';
@@ -21,7 +20,7 @@ function formatDate(dateString: Date) {
 }
 
 function Table() {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const currentPage = Number(searchParams.get('page')) || 1;
   const limit = useOrderStore(store => store.limit);
   const { t } = useTranslation();
