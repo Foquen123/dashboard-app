@@ -14,62 +14,64 @@ import InboxAll from './pages/Inbox/All/InboxAll';
 import InboxStarred from './pages/Inbox/Starred/InboxStarred';
 import OrderList from './pages/OrderList/OrderList';
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <MenuLayout></MenuLayout>,
-    children: [
-      {
-        index: true,
-        element: <Dashboard></Dashboard>
-      },
-      {
-        path: '/products',
-        element: <Products></Products>
-      },
-      {
-        path: '/favorites',
-        element: <Favorites></Favorites>
-      },
-      {
-        path: '/inbox',
-        element: <InboxLayout></InboxLayout>,
-        children: [
-          {
-            index: true,
-            element: <InboxAll></InboxAll>
-          },
-          {
-            path: 'starred',
-            element: <InboxStarred></InboxStarred>
-          },
-          {
-            path: 'spam',
-            element: <>spam</>
-          },
-        ]
-      },
-      {
-        path: '/order-list',
-        element: <OrderList></OrderList>
-      },
-      {
-        path: '/test',
-        element: <Test></Test>
-      },
-    ]
-  },
-  {
-    path: '*',
-    element: <NotFound></NotFound>
-  },
-], {basename: '/dashboard-app'});
+const router = createBrowserRouter(
+  [
+    {
+      path: '/',
+      element: <MenuLayout></MenuLayout>,
+      children: [
+        {
+          index: true,
+          element: <Dashboard></Dashboard>,
+        },
+        {
+          path: '/products',
+          element: <Products></Products>,
+        },
+        {
+          path: '/favorites',
+          element: <Favorites></Favorites>,
+        },
+        {
+          path: '/inbox',
+          element: <InboxLayout></InboxLayout>,
+          children: [
+            {
+              index: true,
+              element: <InboxAll></InboxAll>,
+            },
+            {
+              path: 'starred',
+              element: <InboxStarred></InboxStarred>,
+            },
+            {
+              path: 'spam',
+              element: <>spam</>,
+            },
+          ],
+        },
+        {
+          path: '/order-list',
+          element: <OrderList></OrderList>,
+        },
+        {
+          path: '/test',
+          element: <Test></Test>,
+        },
+      ],
+    },
+    {
+      path: '*',
+      element: <NotFound></NotFound>,
+    },
+  ],
+  { basename: import.meta.env.BASE_URL },
+);
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ThemeProvider>
-
-      <RouterProvider  router={router}></RouterProvider>
+      <RouterProvider router={router}></RouterProvider>
     </ThemeProvider>
   </StrictMode>,
 );
